@@ -89,7 +89,7 @@ fid = fopen('parameter.vh', 'w');
 fprintf(fid,'parameter Nrows   = %d ;\n', Ny);
 fprintf(fid,'parameter Ncol    = %d ;\n', Nx);
 fclose(fid);
-display('Please, start RTL model');
+display('Please, start write_prj.tcl');
 prompt = 'Press Enter when RTL modeling is done \n';
 x = input(prompt);
 
@@ -121,7 +121,7 @@ end
 Iprocess = uint8(Iprocess);
 %% algorithm
 lin_1st = interp_linear_1st(IoutByte);
-lin_2nd = interp_linear_2nd(IoutByte);
+%lin_2nd = interp_linear_2nd(IoutByte);
 %% graphics
 figure(1)
 imshow(I);
@@ -140,9 +140,9 @@ imshow(Iprocess);
 title('Работа алгоритма в RTL модели')
 display('processing done!');
 
-figure(5)
-imshow(lin_2nd);
-title('Работа 2 - го алгоритма в Matlab')
+% figure(5)
+% imshow(lin_2nd);
+% title('Работа 2 - го алгоритма в Matlab')
 
 
 
