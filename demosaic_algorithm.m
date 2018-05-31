@@ -48,7 +48,7 @@ for i = 1 : Nx
         end
     end
 end
-maskR = (Zo2O);
+maskB = (Zo2O);
 %% mask for B
 Zo3O = zeros(Nx, Ny);
 for i = 1 : Nx
@@ -62,7 +62,7 @@ for i = 1 : Nx
         end
     end
 end
-maskB = (Zo3O);
+maskR = (Zo3O);
 
 %% Bayer filter output
 Iout = I;

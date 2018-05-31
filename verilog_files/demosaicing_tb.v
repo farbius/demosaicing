@@ -42,13 +42,12 @@ module demosaicing_tb(  );
     end
 
     demosaicing #(Nrows, Ncol)dutB (.clk(clk),.rst(rst),.s_axis_tvalid(s_axis_tvalid),.s_axis_tuser(s_axis_tuser),.s_axis_tlast(s_axis_tlast),.s_axis_tdata(s_axis_tdata),
-        .s_axis_tready(s_axis_tready),.m_axis_tvalid(m_axis_tvalid),.m_axis_tuser(m_axis_tuser),.m_axis_tlast(m_axis_tlast),.m_axis_tdata(m_axis_tdata),.m_axis_tready(m_axis_tready));    
+        .m_axis_tvalid(m_axis_tvalid),.m_axis_tuser(m_axis_tuser),.m_axis_tlast(m_axis_tlast),.m_axis_tdata(m_axis_tdata));    
 
     event reset_trigger;
     event reset_done_trigger; 
  
     integer fidR, fidG, fidB;
-    integer fidRi, fidGi, fidBi;
  
  
    
@@ -63,26 +62,6 @@ module demosaicing_tb(  );
           -> reset_done_trigger;
     end 
 	
-	/* initial begin
-	 fidRi = $fopen("Rs_in.txt","w");
-     fidGi = $fopen("Gs_in.txt","w");
-     fidBi = $fopen("Bs_in.txt","w");
-	 -> reset_trigger;
-          @(reset_done_trigger);  
-          @(s_axis_tvalid);
-		while(!read_done & s_axis_tvalid)begin
-      @ (posedge clk); 		
-      $fwrite(fidRi, "%d \n", s_axis_tdata[23 : 16]);
-      $fwrite(fidGi, "%d \n", s_axis_tdata[15 : 8]);
-      $fwrite(fidBi, "%d \n", s_axis_tdata[7  : 0]);
-        end	
-	  $fclose(fidRi);
-      $fclose(fidGi);
-      $fclose(fidBi);
-	
-	
-	end */
-      
     
     initial  begin    
      fidR = $fopen("Rs_out.txt","w");

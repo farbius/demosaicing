@@ -19,13 +19,11 @@ parameter Ncol  = 349
     input s_axis_tuser,
     input s_axis_tlast,
     input [8 - 1  : 0] s_axis_tdata,
-    output s_axis_tready,
 // master axi stream interface    
     output m_axis_tvalid,
     output m_axis_tuser,
     output m_axis_tlast,
-    output [23 : 0] m_axis_tdata,
-    input  m_axis_tready 
+    output [23 : 0] m_axis_tdata
     );
 	
     localparam RAM_ADDR_BITS = 11; 
@@ -152,7 +150,7 @@ parameter Ncol  = 349
 		if (rst)begin
 				row_counter <= 0;
 				col_counter <= 0;
-		end else if(s_axis_tvalid & m_axis_tready)begin
+		end else if(s_axis_tvalid)begin
 			if(s_axis_tuser)begin
 				row_counter <= 0;
 				col_counter <= 0;
@@ -166,7 +164,7 @@ parameter Ncol  = 349
 	  end
 	  
 		always @(posedge clk) begin
-           if (s_axis_tvalid & m_axis_tready)begin
+           if (s_axis_tvalid)begin
 		// read from memory lines to shift registers		   
 				case(mux)
 					3'b000 : begin
@@ -291,9 +289,8 @@ parameter Ncol  = 349
 	 assign m_axis_tvalid   = s_axis_tvalid_shift[7];
 	 assign m_axis_tlast    = s_axis_tlast_shift[7];
 	 assign m_axis_tuser    = s_axis_tuser_shift[7];
-	 assign m_axis_tdata    = Pixel_output_register;
+	 assign m_axis_tdata    = {Pixel_output_register[7 : 0], Pixel_output_register[15 : 8], Pixel_output_register[23 : 16]};
 	 
-	 assign s_axis_tready   = 1'b1;
 	  
 	
 	

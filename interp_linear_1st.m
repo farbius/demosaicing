@@ -22,15 +22,15 @@ for i = 2 : floor(Nx/2)*2
     for j = 1 : Ny - 1
         if(mod(i, 2) == 0) % четные строки
             if(mod(j, 2) == 0)
-              Ir(i, j, 1) = round((I(i, j - 1) + I(i, j + 1))/2);
+              Ir(i, j, 3) = round((I(i, j - 1) + I(i, j + 1))/2);
             else
-              Ir(i, j, 1) =  I(i, j);
+              Ir(i, j, 3) =  I(i, j);
             end
         else % нечетные строки
             if(mod(j, 2) == 0)
-              Ir(i, j, 1) = round((I(i - 1, j - 1) + I(i + 1, j - 1) + I(i - 1, j + 1) + I(i + 1, j + 1))/4);   
+              Ir(i, j, 3) = round((I(i - 1, j - 1) + I(i + 1, j - 1) + I(i - 1, j + 1) + I(i + 1, j + 1))/4);   
             else
-              Ir(i, j, 1) = round((I(i - 1, j) + I(i + 1, j))/2);   
+              Ir(i, j, 3) = round((I(i - 1, j) + I(i + 1, j))/2);   
             end
         end
     end
@@ -41,15 +41,15 @@ for i = 1 : Nx - 1
     for j = 2 : floor(Ny/2)*2
         if(mod(i, 2) == 0) % четные строки
             if(mod(j, 2) == 0)              
-              Ir(i, j, 3) = round((I(i - 1, j) + I(i + 1, j))/2);   
+              Ir(i, j, 1) = round((I(i - 1, j) + I(i + 1, j))/2);   
             else
-              Ir(i, j, 3) = round((I(i - 1, j - 1) + I(i + 1, j - 1) + I(i - 1, j + 1) + I(i + 1, j + 1))/4);   
+              Ir(i, j, 1) = round((I(i - 1, j - 1) + I(i + 1, j - 1) + I(i - 1, j + 1) + I(i + 1, j + 1))/4);   
             end
         else % нечетные строки
             if(mod(j, 2) ~= 0)
-              Ir(i, j, 3) = round((I(i, j - 1) + I(i, j + 1))/2);  
+              Ir(i, j, 1) = round((I(i, j - 1) + I(i, j + 1))/2);  
             else
-              Ir(i, j, 3) = I(i, j);  
+              Ir(i, j, 1) = I(i, j);  
             end             
         end
     end
