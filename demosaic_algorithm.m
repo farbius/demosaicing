@@ -1,10 +1,10 @@
 %% demosaic algorithm
 % A Rostov 07/05/2018
-% a.rostov@riftek.com
+% farbius@protonmail.com
 %%
 clc
 clear 
-% исходный файл
+% ГЁГ±ГµГ®Г¤Г­Г»Г© ГґГ Г©Г«
 fileID = -1;
 errmsg = '';
 while fileID < 0 
@@ -125,24 +125,24 @@ lin_1st = interp_linear_1st(IoutByte);
 %% graphics
 figure(1)
 imshow(I);
-title('Исходное изображение')
+title('Г€Г±ГµГ®Г¤Г­Г®ГҐ ГЁГ§Г®ГЎГ°Г Г¦ГҐГ­ГЁГҐ')
 
 figure(2)
 imshow(IoutByte);
-title('Выход фильтра Байера')
+title('Г‚Г»ГµГ®Г¤ ГґГЁГ«ГјГІГ°Г  ГЃГ Г©ГҐГ°Г ')
 
 figure(3)
 imshow(lin_1st);
-title('Работа алгоритма в Matlab')
+title('ГђГ ГЎГ®ГІГ  Г Г«ГЈГ®Г°ГЁГІГ¬Г  Гў Matlab')
 
 figure(4)
 imshow(Iprocess);
-title('Работа алгоритма в RTL модели')
+title('ГђГ ГЎГ®ГІГ  Г Г«ГЈГ®Г°ГЁГІГ¬Г  Гў RTL Г¬Г®Г¤ГҐГ«ГЁ')
 display('processing done!');
 
 % figure(5)
 % imshow(lin_2nd);
-% title('Работа 2 - го алгоритма в Matlab')
+% title('ГђГ ГЎГ®ГІГ  2 - ГЈГ® Г Г«ГЈГ®Г°ГЁГІГ¬Г  Гў Matlab')
 
 
 
