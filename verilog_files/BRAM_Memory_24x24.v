@@ -2,7 +2,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 // Company:     Riftek
 // Engineer:    Alexey Rostov
-// Email:       a.rostov@riftek.com 
+// Email:       farbius@protonmail.com 
 // Create Date: 05/05/18
 // Design Name: demosaicing
 ////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +26,7 @@ module BRAM_Memory_24x24
 	input									b_data_en
 );
 
-//ќсновной регистр, в котором хран¤тс¤ данные
+//ВќГ±Г­Г®ГўГ­Г®Г© Г°ГҐГЈГЁГ±ГІГ°, Гў ГЄГ®ГІГ®Г°Г®Г¬ ГµГ°Г Г­В¤ГІГ±В¤ Г¤Г Г­Г­Г»ГҐ
 (* ram_style = "bram" *)
 reg			[8-1 : 0]						Memory[(2**ADDR_BITS)-1 : 0];
 
